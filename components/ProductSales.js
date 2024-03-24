@@ -3,6 +3,7 @@ import Laptop from '@/components/heros/Laptop'
 import styled from 'styled-components'
 import ButtonLink from './ButtonLink'
 import ShopButton from './ShopButton'
+import { secondary } from '@/lib/colors'
 
 const SaleSection = styled.section`
   padding: 20px;
@@ -21,11 +22,11 @@ const ShopLaptop = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
-  width: 40%;
+  width: 30%;
 `
 const LaptopWrapper = styled.div`
   display: flex;
-  width: 50%;
+  width: 40%;
 `
 
 export default function ProductSales() {
@@ -36,7 +37,13 @@ export default function ProductSales() {
       </LaptopWrapper>
       <ShopLaptop>
         <Sales />
-        <ShopButton />
+        <ShopButton
+          text="BUY LAPTOP"
+          bgColor={secondary}
+          fontSize={'2rem'}
+          paddingX={'20px'}
+          paddingY={'10px'}
+        />
       </ShopLaptop>
     </SaleSection>
   )

@@ -40,6 +40,10 @@ const Title = styled(Link)`
 const ProductInfoBox = styled.div`
   padding: 12px;
   border-top: 1px solid ${secondary};
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 const PriceRow = styled.div`

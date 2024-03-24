@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { CartContextProvider } from '@/components/CartContext'
-import Footer from '@/components/Footer'
+import Footer from '@/components/footer/containers/footer'
 import '../components/carousel/carousel-autoplay.css'
 import Header from '@/components/Header'
 import Toast from '@/components/Toast'
@@ -15,6 +15,7 @@ const GlobalStyles = createGlobalStyle`
     background-color: hsl(0, 0%, 95%);
     padding:0;
     margin:0;
+    min-height : 100vh;
     font-family: 'Poppins', sans-serif;
   }
   

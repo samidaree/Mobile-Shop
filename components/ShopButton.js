@@ -1,65 +1,35 @@
-import { secondary, third } from '@/lib/colors'
+import { primary, primaryHover, secondary, third } from '@/lib/colors'
+import CartIcon from '@/components/icons/CartIcon'
 import styled from 'styled-components'
 
 const Container = styled.div`
   // your CSS here
 `
 
-const HoverBox = styled.div`
-  // your CSS here
+const Icon = styled.div`
+  color: 'green',
+  backgroundColor: 'white',
+  borderRadius: '5px',
+  padding: '3px',
 `
-
-const Row = styled.div`
-  // your CSS here
-`
-
-const Col = styled.div`
-  // your CSS here
-`
-
-const DescriptionBtn = styled.a`
-  // your CSS here
-`
-
-const NameDescription = styled.span`
-  // your CSS here
-`
-
-const BtnIcon = styled.div`
-  // your CSS here
-`
-
-const Heart = styled(BtnIcon)`
-  // your CSS here
-`
-
-const Book = styled(BtnIcon)`
-  // your CSS here
-`
-
-const Brain = styled(BtnIcon)`
-  // your CSS here
-`
-
-const Icon = styled.i`
-  // your CSS here
-`
-
 const Btn = styled.button`
-  background-color: ${secondary};
+  background-color: ${(props) => props.bgColor};
 
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
   white-space: nowrap;
   color: hsla(150, 14%, 97%, 1);
   cursor: pointer;
   outline: none;
-  font-size: 2.4rem;
+  font-size: ${(props) => props.fontSize};
   font-family: 'Norwester';
   text-transform: uppercase;
-  text-shadow: 0.1rem 0.1rem 0.5rem hsla(0, 0%, 0%, 0.5);
-  letter-spacing: 0.1rem;
-  border-radius: 0.5rem;
+  letter-spacing: 0.13rem;
+  border-radius: 5px;
   user-select: none;
-  padding: 1.5rem 2rem;
+  padding: ${(props) => props.paddingY} ${(props) => props.paddingX};
   margin: 1rem;
   transition: all 0.1s ease-in;
 
@@ -68,29 +38,41 @@ const Btn = styled.button`
   }
 
   &:hover {
-    background-color: ${secondary};
+    background-color: ${(props) =>
+      props.bgColor == '#39B54A' ? primaryHover : secondary};
     transform: translateY(-3px);
   }
 
   &:active {
-    background-color: ${third};
+    background-color: ${(props) =>
+      props.bgColor == '#39B54A' ? primary : third};
+    transform: translateY(-3px);
+  }
   }
 
   @media screen and (max-width: 45em) {
-    padding: 1rem 1rem;
-    font-size: 1.5rem;
+    padding: ${(props) => props.paddingY / 2} ${(props) => props.paddingX / 2};
+    font-size: ${(props) => props.fontSize / 2};
     margin: 0.5rem;
   }
 `
 
-const ShopButton = () => {
+const ShopButton = ({ text, fontSize, paddingX, paddingY, bgColor }) => {
+  console.log('🚀 ~ ShopButton ~ bgColor:', bgColor)
   return (
     <Container>
       <Btn
+        paddingX={paddingX}
+        paddingY={paddingY}
+        fontSize={fontSize}
+        bgColor={bgColor}
         type="button"
         buynow
       >
-        Buy Laptop
+        <Icon>
+          <CartIcon />
+        </Icon>
+        {text}
       </Btn>
     </Container>
   )

@@ -1,4 +1,3 @@
-import Header from '@/components/Header'
 import styled from 'styled-components'
 import Center from '@/components/Center'
 import Button from '@/components/Button'
@@ -7,6 +6,8 @@ import { CartContext } from '@/components/CartContext'
 import axios from 'axios'
 import Table from '@/components/Table'
 import Input from '@/components/Input'
+import { primary, third } from '@/lib/colors'
+import ThankYou from '@/components/icons/ThankYou'
 
 const ColumnsWrapper = styled.div`
   display: grid;
@@ -16,6 +17,7 @@ const ColumnsWrapper = styled.div`
   }
   gap: 40px;
   margin-top: 40px;
+  margin-bottom: 120px;
 `
 
 const Box = styled.div`
@@ -32,15 +34,16 @@ const ProductImageBox = styled.div`
   width: 70px;
   height: 100px;
   padding: 2px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   img {
     max-width: 60px;
     max-height: 60px;
   }
+  margin-bottom: 15px;
   @media screen and (min-width: 768px) {
     padding: 10px;
     width: 100px;
@@ -55,10 +58,23 @@ const ProductImageBox = styled.div`
 const QuantityLabel = styled.span`
   padding: 0 15px;
   display: block;
+  color: black;
   @media screen and (min-width: 768px) {
     display: inline-block;
     padding: 0 10px;
   }
+`
+
+const Price = styled.span`
+  font-weight: 500;
+  color: ${third};
+`
+const Name = styled.span`
+  font-weight: 500;
+`
+const Total = styled.span`
+  color: ${third};
+  font-weight: 600;
 `
 
 const CityHolder = styled.div`
@@ -125,12 +141,27 @@ export default function CartPage() {
     return (
       <>
         <Center>
-          <ColumnsWrapper>
+          <ThankYou
+            style={{
+              maxWidth: '600px',
+              display: 'flex',
+              justifyContent: 'center',
+              margin: '60px auto',
+            }}
+          />
+          {/*   <ColumnsWrapper
+            style={{
+              maxWidth: '600px',
+              display: 'flex',
+              justifyContent: 'center',
+              margin: '50px auto',
+            }}
+          >
             <Box>
-              <h1>Thanks for your order!</h1>
-              <p>We will email you when your order will be sent.</p>
+              <h1 style={{ color: '#006693' }}>Thanks for your order!</h1>
+              <p>We will email you when your order is sent.</p>
             </Box>
-          </ColumnsWrapper>
+          </ColumnsWrapper> */}
         </Center>
       </>
     )
@@ -161,10 +192,13 @@ export default function CartPage() {
                             alt=""
                           />
                         </ProductImageBox>
-                        {product.title}
+                        <Name>{product.title}</Name>
                       </ProductInfoCell>
                       <td>
-                        <Button onClick={() => lessOfThisProduct(product._id)}>
+                        <Button
+                          style={{ backgroundColor: 'hsl(100, 40%, 90%)' }}
+                          onClick={() => lessOfThisProduct(product._id)}
+                        >
                           -
                         </Button>
                         <QuantityLabel>
@@ -173,21 +207,29 @@ export default function CartPage() {
                               .length
                           }
                         </QuantityLabel>
-                        <Button onClick={() => moreOfThisProduct(product._id)}>
+                        <Button
+                          style={{ backgroundColor: 'hsl(100, 40%, 90%)' }}
+                          onClick={() => moreOfThisProduct(product._id)}
+                        >
                           +
                         </Button>
                       </td>
+
                       <td>
-                        $
-                        {cartProducts.filter((id) => id === product._id)
-                          .length * product.price}
+                        <Price>
+                          $
+                          {cartProducts.filter((id) => id === product._id)
+                            .length * product.price}
+                        </Price>
                       </td>
                     </tr>
                   ))}
                   <tr>
                     <td></td>
                     <td></td>
-                    <td>${total}</td>
+                    <Total>
+                      <td>${total}</td>
+                    </Total>
                   </tr>
                 </tbody>
               </Table>
@@ -244,6 +286,7 @@ export default function CartPage() {
                 black
                 block
                 onClick={goToPayment}
+                style={{ marginTop: '20px' }}
               >
                 Continue to payment
               </Button>

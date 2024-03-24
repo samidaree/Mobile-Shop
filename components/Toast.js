@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components'
-
+import TablerCheck from './icons/Check'
+import CloseIcon from './icons/Close'
 export default function Toast({ text }) {
   const FadeIn = keyframes`
   0% {
@@ -17,10 +18,11 @@ export default function Toast({ text }) {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #333;
-    color: white;
-    font-size: 26px;
-    padding: 20px 40px;
+    background-color: hsl(100, 40%, 90%);
+    color: black;
+    font-size: 21px;
+    font-weight: 600;
+    padding: 20px 35px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: none;
@@ -28,17 +30,17 @@ export default function Toast({ text }) {
     align-items: center;
     gap: 40px;
     animation: ${FadeIn} 500ms cubic-bezier(0.23, 0.82, 0.16, 1.46);
+    z-index: 20;
   `
   const Text = styled.p`
     margin: 0;
   `
   const Close = styled.button`
-    background-color: transparent;
-    color: white;
     font-size: 20px;
     cursor: pointer;
     margin: 0px 4px;
     all: unset;
+    color: hsl(350, 90%, 60%);
     cursor: pointer;
   `
 
@@ -48,8 +50,11 @@ export default function Toast({ text }) {
   }
   return (
     <Wrapper id="toast">
+      <TablerCheck style={{ color: 'hsl(120, 90%, 50%)' }} />
       <Text>{text}</Text>
-      <Close onClick={() => closeToast()}>x</Close>
+      <Close onClick={() => closeToast()}>
+        <CloseIcon />
+      </Close>
     </Wrapper>
   )
 }

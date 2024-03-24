@@ -1,219 +1,199 @@
-
 .image {
-    width: 100%;
-    object-fit: cover;
-   
+  width: 100%;
+  object-fit: cover;
+}
+.radio {
+  /*display: none;*/
+}
+.images {
+  overflow: hidden;
+
+  top: 0;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+.images-inner {
+  width: 400%;
+
+  transition: all 800ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+.st-slider .image-slide {
+  width: 25%;
+
+  float: left;
+}
+.st-slider .image-slide,
+.fake-radio,
+.st-slider .radio-btn {
+  transition: all 0.5s ease-out;
+}
+.fake-radio {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.fake-radio .radio-btn:first-child:after {
+  content: 'UP 50%';
+}
+.fake-radio .radio-btn:nth-child(2):after {
+  content: 'Budget';
+}
+.fake-radio .radio-btn:nth-child(3):after {
+  content: 'Trade-In';
+}
+.fake-radio .radio-btn:last-child:after {
+  content: '30LAPTOP';
+}
+
+@media screen and (max-width: 768px) {
+  .fake-radio .radio-btn:first-child:after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1.6em' height='1.6em' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16.5 19a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5M10 5l2-2m-4.5 7a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5m.5 6l8-8M5.5 21a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5m13-13a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5M12 21l2-2'/%3E%3C/svg%3E");
   }
-  .radio {
-    /*display: none;*/
+  .fake-radio .radio-btn:nth-child(2):after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1.6em' height='1.6em' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' fill-rule='evenodd' d='M8.732 5.771L5.67 9.914c-1.285 1.739-1.928 2.608-1.574 3.291l.018.034c.375.673 1.485.673 3.704.673c1.233 0 1.85 0 2.236.363l.02.02l3.872-4.57l-.02-.02c-.379-.371-.379-.963-.379-2.148v-.31c0-3.285 0-4.927-.923-5.21c-.923-.283-1.913 1.056-3.892 3.734' clip-rule='evenodd'/%3E%3Cpath fill='%23000' d='M10.453 16.443v.31c0 3.284 0 4.927.923 5.21c.923.283 1.913-1.056 3.893-3.734l3.062-4.143c1.284-1.739 1.927-2.608 1.573-3.291a1.353 1.353 0 0 0-.018-.034c-.375-.673-1.485-.673-3.704-.673c-1.233 0-1.85 0-2.236-.363l-3.872 4.57c.379.371.379.963.379 2.148' opacity='0.5'/%3E%3C/svg%3E");
   }
-  .images {
-    overflow: hidden;
-  
-    top: 0;
-   
-     
-     
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
+  .fake-radio .radio-btn:nth-child(3):after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1.6em' height='1.6em' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M16 2H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2m-3 19h-2v-1h2zm3-2H8V5h8z'/%3E%3C/svg%3E");
   }
-  .images-inner {
-    width: 400%;
-   
-    
-    transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-    transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  .fake-radio .radio-btn:last-child:after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1.6em' height='1.6em' viewBox='0 0 512 512'%3E%3Cpath fill='%23000' d='M73 25v238h366V25H283v16h140v192H89V41h140V25zm174 0v16h18V25zM107 59v156h298V59zM71.03 281l-43.5 174H484.5L441 281h-29.9l20 96h-99.6l16 64H163.8l20-64H80.93l19.97-96zm48.27 0l-2.9 14H147l2.3-14zm48.4 0l-2.3 14h30.7l1.7-14zm48.2 0l-1.7 14H247v-14zm49.1 0v14h32.8l-1.7-14zm49.2 0l1.7 14h30.7l-2.3-14zm48.5 0l2.3 14h30.6l-2.9-14zm-250 32l-3 14h31.9l2.4-14zm49.7 0l-2.4 14h32.1l1.7-14zm49.5 0l-1.7 14H247v-14zm53.1 0v14h36.8l-1.7-14zm53.2 0l1.7 14H352l-2.4-14zm49.8 0l2.4 14h31.9l-3-14zm-262 32l-2.9 14h33.2l2.3-14zm51 0l-2.3 14h33.4l1.7-14zm50.9 0l-1.7 14H247v-14zm57.1 0v14h40.8l-1.7-14zm57.2 0l1.7 14h33.4l-2.3-14zm51.2 0l2.3 14h33.2l-2.9-14zm-170.8 32l-14.4 46h136.3L313 377zM28 473v18h456v-18z'/%3E%3C/svg%3E");
   }
-  .st-slider .image-slide {
-   width: 25%;
-   
-    float: left;
+}
+
+/* Move slides overflowed container */
+.st-slider #slide1:checked ~ .images .images-inner {
+  margin-left: 0;
+}
+.st-slider #slide2:checked ~ .images .images-inner {
+  margin-left: -100%;
+}
+.st-slider #slide3:checked ~ .images .images-inner {
+  margin-left: -200%;
+}
+.st-slider #slide4:checked ~ .images .images-inner {
+  margin-left: -300%;
+}
+
+/* Color of bullets */
+.st-slider #slide1:checked ~ div .fake-radio .radio-btn:nth-child(1),
+.st-slider #slide2:checked ~ div .fake-radio .radio-btn:nth-child(2),
+.st-slider #slide3:checked ~ div .fake-radio .radio-btn:nth-child(3),
+.st-slider #slide4:checked ~ div .fake-radio .radio-btn:nth-child(4) {
+  background: rgb(108, 255, 132);
+}
+
+.st-slider .radio-btn {
+  background: white;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin: 0 2px;
+  padding: 14px 10px;
+  cursor: pointer;
+}
+/* Color of bullets - END */
+
+/* Text of slides */
+.st-slider #slide1:checked ~ .labels .label:nth-child(1),
+.st-slider #slide2:checked ~ .labels .label:nth-child(2),
+.st-slider #slide3:checked ~ .labels .label:nth-child(3),
+.st-slider #slide4:checked ~ .labels .label:nth-child(4) {
+  opacity: 1;
+}
+
+.st-slider .cs_anchor {
+  z-index: -1;
+  position: absolute;
+}
+
+/* Text of slides - END */
+
+/* Calculate AUTOPLAY for BULLETS */
+@keyframes bullet {
+  0%,
+  25% {
+    background: rgb(108, 255, 132);
+    color: black;
+    font-weight: 500;
   }
-  .st-slider .image-slide,
-  .fake-radio,
-  .st-slider .radio-btn {
-    transition: all 0.5s ease-out;
+  28%,
+  40% {
+    background: white;
+    color: black;
+    font-weight: 300;
   }
-  .fake-radio {
-    margin : 20px 0;
-    display : flex ; 
-    justify-content: center;
-  
-  }
-  
-  .fake-radio .radio-btn:first-child:after { 
-    content : 'UP 50%'
-  
-  }
-  .fake-radio .radio-btn:nth-child(2):after{
-    content : 'Budget'
-  }
-  .fake-radio .radio-btn:nth-child(3):after{
-    content : 'Trade-In'
-  }
-  .fake-radio .radio-btn:last-child:after{
-    content : '30LAPTOP'
-  }
-  
-  
-  
-  @media screen and (max-width : 768px){
-    .fake-radio .radio-btn:first-child:after { 
-      content : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 -3 25 25'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-width='1.5' d='M12.062 22h-.124c-.76 0-1.139 0-1.469-.15c-.33-.149-.567-.428-1.041-.986l-2.382-2.803c-.465-.547-.697-.82-.818-1.145c-.12-.324-.12-.675-.12-1.376v-5.263c0-.685 0-1.027-.148-1.328c-.147-.301-.423-.524-.975-.97l-.208-.167C3.595 6.858 3.004 6.38 3 5.69C2.996 5 3.52 4.566 4.568 3.7c.159-.132.316-.255.468-.364c.573-.41 1.402-.863 1.986-1.166a1.581 1.581 0 0 1 1.394-.016l.264.124c.07.032.128.082.171.142c1.498 2.116 4.8 2.116 6.298 0a.437.437 0 0 1 .171-.142l.264-.124a1.581 1.581 0 0 1 1.394.016c.584.303 1.413.756 1.986 1.166c.152.11.31.232.468.363C20.48 4.566 21.004 5 21 5.69c-.005.69-.596 1.168-1.777 2.122l-.208.167c-.552.446-.828.669-.975.97c-.147.3-.147.643-.147 1.328v5.263c0 .701 0 1.052-.121 1.376c-.12.324-.353.598-.818 1.145l-2.382 2.803c-.474.558-.711.837-1.041.987c-.33.149-.71.149-1.469.149Z'/%3E%3C/svg%3E") ; 
-    
-    }
-    .fake-radio .radio-btn:nth-child(2):after{
-      content : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' fill-rule='evenodd' d='M8.732 5.771L5.67 9.914c-1.285 1.739-1.928 2.608-1.574 3.291l.018.034c.375.673 1.485.673 3.704.673c1.233 0 1.85 0 2.236.363l.02.02l3.872-4.57l-.02-.02c-.379-.371-.379-.963-.379-2.148v-.31c0-3.285 0-4.927-.923-5.21c-.923-.283-1.913 1.056-3.892 3.734' clip-rule='evenodd'/%3E%3Cpath fill='%23000' d='M10.453 16.443v.31c0 3.284 0 4.927.923 5.21c.923.283 1.913-1.056 3.893-3.734l3.062-4.143c1.284-1.739 1.927-2.608 1.573-3.291a1.353 1.353 0 0 0-.018-.034c-.375-.673-1.485-.673-3.704-.673c-1.233 0-1.85 0-2.236-.363l-3.872 4.57c.379.371.379.963.379 2.148' opacity='0.5'/%3E%3C/svg%3E")
-    }
-    .fake-radio .radio-btn:nth-child(3):after{
-      content : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 22c5.523 0 10-4.477 10-10c0-.463-.694-.54-.933-.143a6.5 6.5 0 1 1-8.924-8.924C12.54 2.693 12.463 2 12 2C6.477 2 2 6.477 2 12s4.477 10 10 10' opacity='0.5'/%3E%3Cpath fill='%23000' d='M11.286 22C13.337 22 15 20.42 15 18.47c0-1.544-1.045-2.857-2.5-3.336C12.295 13.371 10.72 12 8.81 12c-2.052 0-3.715 1.58-3.715 3.53c0 .43.082.844.23 1.226a2.949 2.949 0 0 0-.54-.05C3.248 16.706 2 17.89 2 19.353C2 20.815 3.247 22 4.786 22z'/%3E%3C/svg%3E")
-    }
-    .fake-radio .radio-btn:last-child:after{
-      content : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M10.927 2.36a.75.75 0 0 1 .248 1.031a.65.65 0 0 0 .095.8l.098.098c.589.588.806 1.453.565 2.25a.75.75 0 1 1-1.436-.434a.758.758 0 0 0-.19-.756l-.097-.098a2.15 2.15 0 0 1-.315-2.642a.75.75 0 0 1 1.032-.249m6.763 2.362a.75.75 0 0 1 .588.882l-.144.72a2.82 2.82 0 0 1-1.871 2.12a1.31 1.31 0 0 0-.874.99l-.144.72a.75.75 0 0 1-1.471-.295l.144-.72c.198-.99.912-1.8 1.87-2.119c.448-.15.782-.527.875-.99l.144-.72a.75.75 0 0 1 .882-.588'/%3E%3Cpath fill='%23000' fill-rule='evenodd' d='M11.719 8.813c-.82-.819-1.494-1.493-2.08-1.928c-.606-.45-1.279-.766-2.054-.583c-.776.183-1.236.768-1.577 1.44c-.33.651-.632 1.556-.998 2.655l-1.73 5.19c-.443 1.33-.803 2.409-.952 3.246c-.15.844-.135 1.701.501 2.337c.636.636 1.493.651 2.337.501c.837-.149 1.916-.508 3.246-.952l5.19-1.73c1.099-.366 2.004-.668 2.655-.998c.673-.34 1.257-.801 1.44-1.576c.183-.776-.134-1.449-.583-2.055c-.434-.586-1.11-1.26-1.928-2.08zm-3.025-.76l.052.037c.486.36 1.082.954 1.956 1.828l.76.76l-.05.133c-.077.211-.178.512-.279.88a11 11 0 0 0-.406 2.864c0 1.063.206 2.08.405 2.82c.083.308.166.573.235.778l-2.635.879a44.1 44.1 0 0 1-.265-1.29c-.174-.907-.356-2.007-.411-2.857c-.092-1.403.087-3.235.3-4.75a49.66 49.66 0 0 1 .338-2.082m-1.74 1.3c-.158.431-.332.95-.54 1.578l-1.69 5.068c-.47 1.407-.792 2.381-.92 3.097c-.127.72-.008.92.086 1.014c.093.093.293.213 1.014.085c.59-.106 1.357-.344 2.398-.687l-.072-.324c-.062-.29-.147-.697-.236-1.16c-.176-.918-.373-2.093-.435-3.04c-.103-1.566.096-3.525.312-5.058c.027-.197.055-.389.083-.572m5.836 8.326l.279-.093c1.172-.39 1.97-.659 2.51-.932c.53-.269.627-.453.658-.584c.03-.131.026-.34-.328-.816c-.36-.486-.954-1.083-1.828-1.957l-1.436-1.437a9.506 9.506 0 0 0-.417 2.695c0 .62.084 1.236.197 1.78a11.522 11.522 0 0 0 .365 1.344' clip-rule='evenodd'/%3E%3Cpath fill='%23000' d='M20.33 12.73a1.013 1.013 0 0 1 1.078-.17l.292.127a.75.75 0 1 0 .6-1.374l-.29-.128a2.513 2.513 0 0 0-2.675.423c-.326.289-.8.337-1.178.119l-.213-.123a.75.75 0 1 0-.75 1.3l.213.122c.937.54 2.114.422 2.924-.296m-6.352-8.672c-.116.037-.217.137-.418.338c-.201.201-.302.302-.338.418a.5.5 0 0 0 0 .302c.036.117.137.217.338.418c.201.201.302.302.418.339a.5.5 0 0 0 .302 0c.116-.037.217-.138.418-.339c.201-.2.302-.301.338-.418a.501.501 0 0 0 0-.302c-.037-.116-.137-.217-.338-.418c-.201-.2-.302-.301-.418-.338a.5.5 0 0 0-.302 0m5.489 3.41c.246-.245.368-.368.507-.421a.7.7 0 0 1 .503 0c.139.053.261.176.507.421c.245.246.368.368.421.507a.7.7 0 0 1 0 .503c-.053.139-.176.261-.421.507c-.246.245-.368.368-.507.421a.7.7 0 0 1-.503 0c-.139-.053-.261-.176-.507-.421c-.245-.246-.368-.368-.421-.507a.7.7 0 0 1 0-.503c.053-.139.176-.261.421-.507M7.686 3.94a.536.536 0 1 0-.759.76a.536.536 0 0 0 .759-.76m11.372 11.374a.536.536 0 1 1 .759.758a.536.536 0 0 1-.759-.758m-.799-5.572a.536.536 0 1 0-.759.758a.536.536 0 0 0 .759-.758'/%3E%3C/svg%3E")
-    }
-  }
-  
-  
-  
-  
-  /* Move slides overflowed container */
-  .st-slider #slide1:checked ~ .images .images-inner {
+}
+
+#play1:checked ~ div .fake-radio .radio-btn:nth-child(1) {
+  animation: bullet 16400ms infinite -1000ms;
+}
+
+#play1:checked ~ div .fake-radio .radio-btn:nth-child(2) {
+  animation: bullet 16400ms infinite 3100ms;
+}
+
+#play1:checked ~ div .fake-radio .radio-btn:nth-child(3) {
+  animation: bullet 16400ms infinite 7200ms;
+}
+#play1:checked ~ div .fake-radio .radio-btn:nth-child(4) {
+  animation: bullet 16400ms infinite 11300ms;
+}
+/* Calculate AUTOPLAY for BULLETS - END */
+
+/* Calculate AUTOPLAY for SLIDES */
+@keyframes slide {
+  0%,
+  20% {
     margin-left: 0;
   }
-  .st-slider #slide2:checked ~ .images .images-inner {
+  25%,
+  45% {
     margin-left: -100%;
   }
-  .st-slider #slide3:checked ~ .images .images-inner {
+  50%,
+  70% {
     margin-left: -200%;
   }
-  .st-slider #slide4:checked ~ .images .images-inner {
+  75%,
+  95% {
     margin-left: -300%;
   }
-  
-  
-  
-  /* Color of bullets */
-  .st-slider #slide1:checked ~ div .fake-radio .radio-btn:nth-child(1),
-  .st-slider #slide2:checked ~ div .fake-radio .radio-btn:nth-child(2),
-  .st-slider #slide3:checked ~ div .fake-radio .radio-btn:nth-child(3), .st-slider #slide4:checked ~ div .fake-radio .radio-btn:nth-child(4) {
-    background: rgb(108, 255, 132) ;
-  
-  } 
-  
-  .st-slider .radio-btn {
-    
-    background: white;
-    display: flex ;
-    align-items: center;
-    border-radius: 5px;
-   margin:0 2px; 
-    padding : 14px 10px; 
-    cursor: pointer;
-  }
-  /* Color of bullets - END */
-  
-  
-  
-  
-  /* Text of slides */
-  .st-slider #slide1:checked ~ .labels .label:nth-child(1),
-  .st-slider #slide2:checked ~ .labels .label:nth-child(2),
-  .st-slider #slide3:checked ~ .labels .label:nth-child(3), .st-slider #slide4:checked ~ .labels .label:nth-child(4) {
+}
+
+.st-slider > #play1:checked ~ .images .images-inner {
+  animation: slide 16400ms infinite;
+}
+/* Calculate AUTOPLAY for SLIDES - END */
+
+/* Calculate AUTOPLAY for CAPTION */
+@keyframes caption {
+  0%,
+  25% {
     opacity: 1;
   }
-  
-  .st-slider .cs_anchor {
-    
-    z-index: -1;
-    position: absolute;
+  25%,
+  100% {
+    opacity: 0;
   }
-  
-   /* Text of slides - END */
-  
-  
-  
-  /* Calculate AUTOPLAY for BULLETS */
-  @keyframes bullet {
-    0%, 25%	{
-      background: rgb(108, 255, 132);  
-      color : black; 
-      font-weight : 500; 
-    }
-    28%, 40% {
-      background: white;
-      color : black;
-      font-weight : 300; 
-  
-    }
-  }
-  
-  
-  #play1:checked ~ div .fake-radio .radio-btn:nth-child(1) {
-    animation: bullet 16400ms infinite -1000ms;
-  }
-  
-  #play1:checked ~ div .fake-radio .radio-btn:nth-child(2) {
-    animation: bullet 16400ms infinite 3100ms;	
-  }
-  
-  #play1:checked ~ div .fake-radio .radio-btn:nth-child(3) {
-    animation: bullet 16400ms infinite 7200ms;	
-  }
-  #play1:checked ~ div .fake-radio .radio-btn:nth-child(4) {
-    animation: bullet 16400ms infinite 11300ms;	
-  }
-  /* Calculate AUTOPLAY for BULLETS - END */
-  
-  
-  
-  
-  /* Calculate AUTOPLAY for SLIDES */
-  @keyframes slide {
-    0%, 20%	{ margin-left: 0; }
-   25%, 45%	{ margin-left: -100%; }
-    50%, 70%	{ margin-left: -200%; }
-    75%, 95%	{ margin-left: -300%; }
-  }
-  
-  
-  .st-slider > #play1:checked ~ .images .images-inner {
-    animation: slide 16400ms infinite;	
-  }
-  /* Calculate AUTOPLAY for SLIDES - END */
-  
+}
 
-  
-  
-  
-  
-  /* Calculate AUTOPLAY for CAPTION */
-  @keyframes caption {
-    0%, 25%	{
-      opacity: 1;
-    }
-    25%, 100% {
-      opacity: 0;
-    }
-  }
-  
-  
-  #play1:checked ~ .labels .label:nth-child(1) {
-    animation: caption 16400ms infinite -1000ms;
-  }
-  
-  #play1:checked ~ .labels .label:nth-child(2) {
-    animation: caption 16400ms infinite 3100ms;	
-  }
-  
-  #play1:checked ~ .labels .label:nth-child(3) {
-    animation: caption 16400ms infinite 7200ms;	
-  }
-  #play1:checked ~ .labels .label:nth-child(4) {
-    animation: caption 16400ms infinite 11300ms;	
-  }
-  /* Calculate AUTOPLAY for CAPTION - END */
-  
-  
-  
+#play1:checked ~ .labels .label:nth-child(1) {
+  animation: caption 16400ms infinite -1000ms;
+}
+
+#play1:checked ~ .labels .label:nth-child(2) {
+  animation: caption 16400ms infinite 3100ms;
+}
+
+#play1:checked ~ .labels .label:nth-child(3) {
+  animation: caption 16400ms infinite 7200ms;
+}
+#play1:checked ~ .labels .label:nth-child(4) {
+  animation: caption 16400ms infinite 11300ms;
+}
+/* Calculate AUTOPLAY for CAPTION - END */

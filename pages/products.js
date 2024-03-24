@@ -7,6 +7,7 @@ import { mongooseConnect } from '@/lib/mongoose'
 import { Product } from '@/models/Product'
 import ProductsGrid from '@/components/ProductsGrid'
 import TitleH2 from '@/components/TitleH2'
+import Carousel from '@/components/carousel/Carousel'
 
 const SaleBox = styled.div`
   background-color: #f7f7f7;
@@ -18,13 +19,17 @@ export default function ProductsPage({ products }) {
     <>
       <FifthHero />
 
+      <Carousel
+        products={products}
+        text={'Trending'}
+      />
+      <SaleBox>
+        <ProductSales />
+      </SaleBox>
       <Center>
         <TitleH2>Products</TitleH2>
         <ProductsGrid products={products} />
       </Center>
-      <SaleBox>
-        <ProductSales />
-      </SaleBox>
     </>
   )
 }

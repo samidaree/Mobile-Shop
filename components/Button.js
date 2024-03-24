@@ -3,7 +3,7 @@ import { primary, primaryHover } from '@/lib/colors'
 
 export const ButtonStyle = css`
   border: 0;
-  padding: 5px 10px;
+  padding: 10px 10px;
   border-radius: 5px;
   cursor: pointer;
   display: inline-flex;
@@ -11,6 +11,7 @@ export const ButtonStyle = css`
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
+  font-size: ${(props) => props.fontSize || '1rem'};
   svg {
     padding: 0 5px;
     height: 16px;

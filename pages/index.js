@@ -7,7 +7,7 @@ import { mongooseConnect } from '@/lib/mongoose'
 import NewProducts from '@/components/NewProducts'
 import Marketing from '@/components/icons/Marketing'
 import styled from 'styled-components'
-
+import mongoose from 'mongoose'
 const MarketingSection = styled.div`
   background-color: #f7f7f7;
 `
@@ -49,7 +49,7 @@ export async function getServerSideProps() {
     limit: 10,
   }).populate('category')
   console.log('🚀 ~ getServerSideProps ~ newProducts:', newProducts)
-
+  await mongoose.disconnect()
   return {
     props: {
       newProducts: JSON.parse(JSON.stringify(newProducts)),

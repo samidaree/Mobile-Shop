@@ -156,6 +156,7 @@ export async function getServerSideProps(context) {
     sort: { _id: -1 },
   }).populate('category')
   console.log('🚀 ~ getServerSideProps ~ productsList:', productsList)
+  await mongoose.disconnect()
   return {
     props: {
       product: JSON.parse(JSON.stringify(product)),

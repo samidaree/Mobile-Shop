@@ -39,6 +39,7 @@ export async function getServerSideProps() {
   const products = await Product.find({}, null, { sort: { _id: -1 } }).populate(
     'category',
   )
+  await mongoose.disconnect()
   return {
     props: {
       products: JSON.parse(JSON.stringify(products)),

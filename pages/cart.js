@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import EmptyCart from '@/components/icons/EmptyCart'
 import Center from '@/components/Center'
 import Button from '@/components/Button'
 import { useContext, useEffect, useState } from 'react'
@@ -8,6 +9,7 @@ import Table from '@/components/Table'
 import Input from '@/components/Input'
 import { primary, third } from '@/lib/colors'
 import ThankYou from '@/components/icons/ThankYou'
+import Title from '@/components/Title'
 
 const ColumnsWrapper = styled.div`
   display: grid;
@@ -18,6 +20,16 @@ const ColumnsWrapper = styled.div`
   gap: 40px;
   margin-top: 40px;
   margin-bottom: 120px;
+`
+
+const IconWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 500px;
 `
 
 const Box = styled.div`
@@ -85,7 +97,10 @@ const CityHolder = styled.div`
 export default function CartPage() {
   const { cartProducts, addProduct, removeProduct, clearCart } =
     useContext(CartContext)
+  console.log(cartProducts)
+
   const [products, setProducts] = useState([])
+  console.log('🚀 ~ CartPage ~ products:', products)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [city, setCity] = useState('')
@@ -93,15 +108,17 @@ export default function CartPage() {
   const [streetAddress, setStreetAddress] = useState('')
   const [country, setCountry] = useState('')
   const [isSuccess, setIsSuccess] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  console.log('🚀 ~ CartPage ~ isLoading:', isLoading)
   useEffect(() => {
     if (cartProducts.length > 0) {
-      axios.post('/api/cart', { ids: cartProducts }).then((response) => {
-        setProducts(response.data)
-      })
+      fetchProducts()
     } else {
       setProducts([])
+      setIsLoading(false)
     }
   }, [cartProducts])
+
   useEffect(() => {
     if (typeof window === 'undefined') {
       return
@@ -111,6 +128,13 @@ export default function CartPage() {
       clearCart()
     }
   }, [])
+  async function fetchProducts() {
+    await axios.post('/api/cart', { ids: cartProducts }).then((response) => {
+      setProducts(response.data)
+    })
+
+    setIsLoading(false)
+  }
   function moreOfThisProduct(id) {
     addProduct(id)
   }
@@ -137,6 +161,9 @@ export default function CartPage() {
     total += price
   }
 
+  if (isLoading) {
+    return <div style={{ minHeight: '100vh' }} />
+  }
   if (isSuccess) {
     return (
       <>
@@ -169,11 +196,22 @@ export default function CartPage() {
   return (
     <>
       <Center>
+        {cartProducts.length == 0 && products?.length === 0 && (
+          <IconWrapper>
+            <EmptyCart
+              style={{
+                margin: 'auto',
+                display: 'flex',
+                justifyContent: 'center',
+                textAlign: 'center',
+              }}
+            />
+            <Title>Your cart is empty</Title>
+          </IconWrapper>
+        )}
         <ColumnsWrapper>
-          <Box>
-            <h2>Cart</h2>
-            {!cartProducts?.length && <div>Your cart is empty</div>}
-            {products?.length > 0 && (
+          {products?.length > 0 && (
+            <Box>
               <Table>
                 <thead>
                   <tr>
@@ -233,8 +271,8 @@ export default function CartPage() {
                   </tr>
                 </tbody>
               </Table>
-            )}
-          </Box>
+            </Box>
+          )}
           {!!cartProducts?.length && (
             <Box>
               <h2>Order information</h2>

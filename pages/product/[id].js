@@ -79,6 +79,19 @@ const Price = styled.span`
 export default function ProductPage({ product, productsList }) {
   console.log('🚀 ~ ProductPage ~ product:', product)
   const { addProduct } = useContext(CartContext)
+  const handleAddProduct = (productId) => {
+    addProduct(productId)
+    const toast = document.getElementById('toast')
+    if (toast.style.display === 'flex') {
+      toast.style.display = 'none'
+      console.log(toast)
+      setTimeout(() => {
+        toast.style.display = 'flex'
+      }, 1000)
+      return
+    }
+    toast.style.display = 'flex'
+  }
   return (
     <>
       <Center>
@@ -107,14 +120,13 @@ export default function ProductPage({ product, productsList }) {
               <div>
                 <Price>${product.price}</Price>
               </div>
-              <div onClick={() => addProduct(product._id)}>
+              <div onClick={() => handleAddProduct(product._id)}>
                 <ShopButton
                   text="Add to cart"
                   fontSize="1.2rem"
                   paddingX="10px"
                   paddingY="5px"
                   bgColor={primary}
-                  onClick={() => addProduct(product._id)}
                 />
                 {/* <Button
                   primary

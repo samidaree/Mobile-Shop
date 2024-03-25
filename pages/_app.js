@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
       <GlobalStyles />
 
       <CartContextProvider>
-        <Toast text={'Product added '}></Toast>
+        <Toast text={'The product has been added.'}></Toast>
         <Header />
         <Component {...pageProps} />
 

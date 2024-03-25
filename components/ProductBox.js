@@ -83,9 +83,17 @@ export default function ProductBox({
   const { addProduct } = useContext(CartContext)
   const url = '/product/' + _id
 
-  const handleCartClick = () => {
+  const handleCartClick = (id) => {
+    addProduct(id)
     const toast = document.getElementById('toast')
-    toast.classList.add('show')
+    if (toast.style.display === 'flex') {
+      toast.style.display = 'none'
+      console.log(toast)
+      setTimeout(() => {
+        toast.style.display = 'flex'
+      }, 1000)
+      return
+    }
     toast.style.display = 'flex'
   }
   return (
@@ -106,10 +114,10 @@ export default function ProductBox({
         <PriceRow>
           <Price>${price}</Price>
           <Button
-            onClick={() => addProduct(_id)}
+            onClick={() => handleCartClick(_id)}
             primary
           >
-            <CartIcon onClick={() => handleCartClick()} />
+            <CartIcon />
           </Button>
         </PriceRow>
       </ProductInfoBox>

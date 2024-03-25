@@ -19,18 +19,32 @@ export default function Toast({ text }) {
     bottom: 20px;
     right: 20px;
     background-color: hsl(100, 40%, 90%);
-    color: black;
-    font-size: 21px;
-    font-weight: 600;
+
     padding: 20px 35px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: none;
+    border-left: 5px solid #82c785;
     justify-content: space-between;
     align-items: center;
     gap: 40px;
     animation: ${FadeIn} 500ms cubic-bezier(0.23, 0.82, 0.16, 1.46);
     z-index: 20;
+  `
+  const TextWrapper = styled.div``
+
+  const FirstLine = styled.div`
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    justify-content: space-between;
+  `
+  const ToastTitle = styled.h3`
+    color: black;
+
+    font-size: 19px;
+    font-weight: 600;
+    margin: 5px 0 10px 0;
   `
   const Text = styled.p`
     margin: 0;
@@ -40,7 +54,6 @@ export default function Toast({ text }) {
     cursor: pointer;
     margin: 0px 4px;
     all: unset;
-    color: hsl(350, 90%, 60%);
     cursor: pointer;
   `
 
@@ -50,11 +63,24 @@ export default function Toast({ text }) {
   }
   return (
     <Wrapper id="toast">
-      <TablerCheck style={{ color: 'hsl(120, 90%, 50%)' }} />
-      <Text>{text}</Text>
-      <Close onClick={() => closeToast()}>
-        <CloseIcon />
-      </Close>
+      <FirstLine>
+        <TablerCheck
+          style={{
+            color: 'white',
+            backgroundColor: '#82C785',
+            borderRadius: '10px',
+          }}
+        />
+        <div>
+          <ToastTitle>Success</ToastTitle>
+          <div>
+            <Text>{text}</Text>
+          </div>
+        </div>
+        <Close onClick={() => closeToast()}>
+          <CloseIcon />
+        </Close>
+      </FirstLine>
     </Wrapper>
   )
 }

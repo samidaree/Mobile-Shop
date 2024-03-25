@@ -1,17 +1,22 @@
 import React from 'react'
 
-export default function MdiCloseBox(props) {
+export default function CharmCross(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
+      width="1.4em"
+      height="1.4em"
+      viewBox="0 0 16 16"
+      fill={'#82C785'}
+      color="#82C785"
       {...props}
     >
       <path
-        fill="currentColor"
-        d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-3.4 14L12 13.4L8.4 17L7 15.6l3.6-3.6L7 8.4L8.4 7l3.6 3.6L15.6 7L17 8.4L13.4 12l3.6 3.6z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="m11.25 4.75l-6.5 6.5m0-6.5l6.5 6.5"
       ></path>
     </svg>
   )

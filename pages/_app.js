@@ -18,6 +18,10 @@ const GlobalStyles = createGlobalStyle`
     min-height : 100vh;
     font-family: 'Poppins', sans-serif;
   }
+  a{
+    text-decoration: none;
+  color: inherit;
+  }
   
 `
 

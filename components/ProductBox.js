@@ -71,6 +71,12 @@ const TitleBox = styled.div`
   gap: 3px;
   justify-content: space-between;
 `
+const OneLine = styled.div`
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+`
 
 export default function ProductBox({
   _id,
@@ -108,8 +114,12 @@ export default function ProductBox({
       </WhiteBox>
       <ProductInfoBox>
         <TitleBox>
-          <Title href={url}>{title}</Title>
-          <Tag>{category.name}</Tag>
+          <Title href={url}>
+            <OneLine>{title}</OneLine>
+          </Title>
+          <Tag>
+            <OneLine>{category.name} </OneLine>
+          </Tag>
         </TitleBox>
         <PriceRow>
           <Price>${price}</Price>

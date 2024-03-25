@@ -41,14 +41,13 @@ export default function HomePage({ newProducts }) {
 }
 
 export async function getServerSideProps() {
-  const mongo = await mongooseConnect()
-  console.log('🚀 ~ getServerSideProps ~ mongo:', mongo)
+  await mongooseConnect()
 
   const newProducts = await Product.find({}, null, {
     sort: { _id: -1 },
     limit: 10,
   }).populate('category')
-  console.log('🚀 ~ getServerSideProps ~ newProducts:', newProducts)
+
   await mongoose.disconnect()
   return {
     props: {

@@ -16,6 +16,7 @@ import Stars from '@/components/stars/Star'
 import { primary, secondary, third } from '@/lib/colors'
 import ShopButton from '@/components/ShopButton'
 import Tag from '@/components/Tag'
+import mongoose from 'mongoose'
 
 const ColWrapper = styled.div`
   display: grid;

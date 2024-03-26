@@ -7,98 +7,102 @@ import Link from 'next/link'
 export default function AutoplayCarousel() {
   return (
     <>
-      <Link href="/products">
-        <div
-          id="homepage-slider"
-          className="st-slider"
-        >
-          <input
-            type="radio"
-            className="cs_anchor radio"
-            name="slider"
-            id="slide1"
-          />
-          <input
-            type="radio"
-            className="cs_anchor radio"
-            name="slider"
-            id="slide2"
-          />
-          <input
-            type="radio"
-            className="cs_anchor radio"
-            name="slider"
-            id="slide3"
-          />
-          <input
-            type="radio"
-            className="cs_anchor radio"
-            name="slider"
-            id="slide4"
-          />
-          <input
-            type="radio"
-            className="cs_anchor radio"
-            name="slider"
-            id="play1"
-            defaultChecked={true}
-          />
-
-          <div className="images">
-            <div className="images-inner">
-              <div className="image-slide">
+      <div
+        id="homepage-slider"
+        className="st-slider"
+      >
+        <input
+          type="radio"
+          className="cs_anchor radio"
+          name="slider"
+          id="slide1"
+        />
+        <input
+          type="radio"
+          className="cs_anchor radio"
+          name="slider"
+          id="slide2"
+        />
+        <input
+          type="radio"
+          className="cs_anchor radio"
+          name="slider"
+          id="slide3"
+        />
+        <input
+          type="radio"
+          className="cs_anchor radio"
+          name="slider"
+          id="slide4"
+        />
+        <input
+          type="radio"
+          className="cs_anchor radio"
+          name="slider"
+          id="play1"
+          defaultChecked={true}
+        />
+        <div className="images">
+          <div className="images-inner">
+            <div className="image-slide">
+              <Link href="/products">
                 <FirstHero />
-              </div>
-              <div className="image-slide">
-                <SecondHero />
-              </div>
-              <div className="image-slide">
-                <ThirdHero />
-              </div>
-              <div className="image-slide">
-                <FourthHero />
-              </div>
+              </Link>
             </div>
-          </div>
-
-          <div className="labels">
-            <label
-              for="slide1"
-              className={`label`}
-            ></label>
-            <label
-              for="slide2"
-              className="label"
-            ></label>
-            <label
-              for="slide3"
-              className="label"
-            ></label>
-            <label
-              for="slide4"
-              className="label"
-            ></label>
-            <div className="fake-radio ">
-              <label
-                for="slide1"
-                className="radio-btn"
-              ></label>
-              <label
-                for="slide2"
-                className="radio-btn"
-              ></label>
-              <label
-                for="slide3"
-                className="radio-btn"
-              ></label>{' '}
-              <label
-                for="slide4"
-                className="radio-btn"
-              ></label>
+            <div className="image-slide">
+              <Link href="/products">
+                <SecondHero />
+              </Link>
+            </div>
+            <div className="image-slide">
+              <Link href="/products">
+                <ThirdHero />
+              </Link>
+            </div>
+            <div className="image-slide">
+              <Link href="/products">
+                <FourthHero />
+              </Link>
             </div>
           </div>
         </div>
-      </Link>
+        <div className="labels">
+          <label
+            for="slide1"
+            className={`label`}
+          ></label>
+          <label
+            for="slide2"
+            className="label"
+          ></label>
+          <label
+            for="slide3"
+            className="label"
+          ></label>
+          <label
+            for="slide4"
+            className="label"
+          ></label>
+          <div className="fake-radio ">
+            <label
+              for="slide1"
+              className="radio-btn"
+            ></label>
+            <label
+              for="slide2"
+              className="radio-btn"
+            ></label>
+            <label
+              for="slide3"
+              className="radio-btn"
+            ></label>{' '}
+            <label
+              for="slide4"
+              className="radio-btn"
+            ></label>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

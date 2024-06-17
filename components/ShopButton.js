@@ -2,10 +2,6 @@ import { primary, primaryHover, secondary, third } from '@/lib/colors'
 import CartIcon from '@/components/icons/CartIcon'
 import styled from 'styled-components'
 
-const Container = styled.div`
-  // your CSS here
-`
-
 const Icon = styled.div`
   color: 'green',
   backgroundColor: 'white',
@@ -23,10 +19,9 @@ const Btn = styled.button`
   color: hsla(150, 14%, 97%, 1);
   cursor: pointer;
   outline: none;
+  font-weight : 800; 
   font-size: ${(props) => props.fontSize};
-  font-family: 'Norwester';
   text-transform: uppercase;
-  letter-spacing: 0.13rem;
   border-radius: 5px;
   user-select: none;
   padding: ${(props) => props.paddingY} ${(props) => props.paddingX};
@@ -60,21 +55,20 @@ const Btn = styled.button`
 const ShopButton = ({ text, fontSize, paddingX, paddingY, bgColor }) => {
   console.log('🚀 ~ ShopButton ~ bgColor:', bgColor)
   return (
-    <Container>
+    <>
       <Btn
         paddingX={paddingX}
         paddingY={paddingY}
         fontSize={fontSize}
         bgColor={bgColor}
         type="button"
-        buynow
       >
         <Icon>
           <CartIcon />
         </Icon>
         {text}
       </Btn>
-    </Container>
+    </>
   )
 }
 export default ShopButton

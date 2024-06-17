@@ -68,36 +68,36 @@ export default function AutoplayCarousel() {
         </div>
         <div className="labels">
           <label
-            for="slide1"
+            htmlFor="slide1"
             className={`label`}
           ></label>
           <label
-            for="slide2"
+            htmlFor="slide2"
             className="label"
           ></label>
           <label
-            for="slide3"
+            htmlFor="slide3"
             className="label"
           ></label>
           <label
-            for="slide4"
+            htmlFor="slide4"
             className="label"
           ></label>
           <div className="fake-radio ">
             <label
-              for="slide1"
+              htmlFor="slide1"
               className="radio-btn"
             ></label>
             <label
-              for="slide2"
+              htmlFor="slide2"
               className="radio-btn"
             ></label>
             <label
-              for="slide3"
+              htmlFor="slide3"
               className="radio-btn"
             ></label>{' '}
             <label
-              for="slide4"
+              htmlFor="slide4"
               className="radio-btn"
             ></label>
           </div>

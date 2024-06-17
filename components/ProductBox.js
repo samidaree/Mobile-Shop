@@ -8,9 +8,12 @@ import { CartContext } from '@/components/CartContext'
 import { secondary, third } from '@/lib/colors'
 
 const ProductWrapper = styled.div`
-  max-width: 240px;
+  width: 230px;
   border-radius: 5px;
   background-color: #fcfcfc;
+  @media screen and (min-width: 480px) and (max-width: 640px) {
+    width: 210px;
+  }
 `
 
 const WhiteBox = styled(Link)`

@@ -66,9 +66,14 @@ const ProductImageBox = styled.div`
     }
   }
 `
+const QuantityCell = styled.div`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+`
 
 const QuantityLabel = styled.span`
-  padding: 0 15px;
+  padding: 0 0.5rem;
   display: block;
   color: black;
   @media screen and (min-width: 768px) {
@@ -176,19 +181,6 @@ export default function CartPage() {
               margin: '60px auto',
             }}
           />
-          {/*   <ColumnsWrapper
-            style={{
-              maxWidth: '600px',
-              display: 'flex',
-              justifyContent: 'center',
-              margin: '50px auto',
-            }}
-          >
-            <Box>
-              <h1 style={{ color: '#006693' }}>Thanks for your order!</h1>
-              <p>We will email you when your order is sent.</p>
-            </Box>
-          </ColumnsWrapper> */}
         </Center>
       </>
     )
@@ -233,24 +225,26 @@ export default function CartPage() {
                         <Name>{product.title}</Name>
                       </ProductInfoCell>
                       <td>
-                        <Button
-                          style={{ backgroundColor: 'hsl(100, 40%, 90%)' }}
-                          onClick={() => lessOfThisProduct(product._id)}
-                        >
-                          -
-                        </Button>
-                        <QuantityLabel>
-                          {
-                            cartProducts.filter((id) => id === product._id)
-                              .length
-                          }
-                        </QuantityLabel>
-                        <Button
-                          style={{ backgroundColor: 'hsl(100, 40%, 90%)' }}
-                          onClick={() => moreOfThisProduct(product._id)}
-                        >
-                          +
-                        </Button>
+                        <QuantityCell>
+                          <Button
+                            style={{ padding: '3px 10px' }}
+                            onClick={() => lessOfThisProduct(product._id)}
+                          >
+                            -
+                          </Button>
+                          <QuantityLabel>
+                            {
+                              cartProducts.filter((id) => id === product._id)
+                                .length
+                            }
+                          </QuantityLabel>
+                          <Button
+                            style={{ padding: '3px 10px' }}
+                            onClick={() => moreOfThisProduct(product._id)}
+                          >
+                            +
+                          </Button>
+                        </QuantityCell>
                       </td>
 
                       <td>

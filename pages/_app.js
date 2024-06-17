@@ -4,13 +4,11 @@ import Footer from '@/components/footer/containers/footer'
 import '../components/carousel/carousel-autoplay.css'
 import Header from '@/components/Header'
 import Toast from '@/components/Toast'
+import { Inter } from 'next/font/google'
+const inter = Inter({ subsets: ['latin'] })
 
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-  @font-face{
-    font-family: 'Norwester';
-    src: url('/norwester/norwester.otf');
-  }
+ 
   body{
     background-color: hsl(0, 0%, 95%);
     padding:0;
@@ -27,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <main className={inter.className}>
       <GlobalStyles />
 
       <CartContextProvider>
@@ -37,6 +35,6 @@ export default function App({ Component, pageProps }) {
 
         <Footer />
       </CartContextProvider>
-    </>
+    </main>
   )
 }

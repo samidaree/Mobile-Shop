@@ -4,4 +4,4 @@
 
 ## Live Project
 
-https://mobile-shop-rru2.onrender.com/
+[https://mobilestore.samidare.co/](https://mobilestore.samidare.co/)

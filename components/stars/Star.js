@@ -15,7 +15,6 @@ S.RatingSpan = styled.span`
   font-weight: 700;
   padding-right: 5px;
   line-height: 0.8rem;
-  font-family: Helvetica, Arial;
 `
 
 S.BackStarsDiv = styled.div`

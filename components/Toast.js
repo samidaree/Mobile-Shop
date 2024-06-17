@@ -31,7 +31,6 @@ export default function Toast({ text }) {
     animation: ${FadeIn} 500ms cubic-bezier(0.23, 0.82, 0.16, 1.46);
     z-index: 20;
   `
-  const TextWrapper = styled.div``
 
   const FirstLine = styled.div`
     display: flex;

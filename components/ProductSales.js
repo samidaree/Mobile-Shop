@@ -53,7 +53,7 @@ export default function ProductSales() {
         <ShopButton
           text="BUY LAPTOP"
           bgColor={secondary}
-          fontSize={'1rem'}
+          fontSize={'1.4rem'}
           paddingX={'20px'}
           paddingY={'10px'}
         />

@@ -14,7 +14,6 @@ const GlobalStyles = createGlobalStyle`
     padding:0;
     margin:0;
     min-height : 100vh;
-    font-family: 'Poppins', sans-serif;
   }
   a{
     text-decoration: none;

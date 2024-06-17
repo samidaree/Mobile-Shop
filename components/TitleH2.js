@@ -4,8 +4,7 @@ const Title = styled.h2`
   font-size: 2rem;
   margin: 30px 0 20px;
   padding: 10px 0;
-  font-weight: 600;
-  font-family: 'Norwester';
+  font-weight: 900;
   display: inline-block;
   text-transform: uppercase;
   position: relative;

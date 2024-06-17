@@ -9,7 +9,6 @@ export const ButtonStyle = css`
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: ${(props) => props.fontSize || '1rem'};
   svg {
